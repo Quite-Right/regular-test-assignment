@@ -35,7 +35,7 @@ export const Characters = () => {
 
     const updateCharacterInfo = useCallback((newCharacterInfo: IEditCharacterInfo) => {
         // compare two DTO's: newCharacterInfo and DTO from data field by field
-        // if there are changes send update request -> if successful -> dispatch(fetchCharactersRequest(page))
+        // if there are changes send update request -> if successful -> dispatch(fetchCharactersRequest({page, search))
         // to update data
     }, [data, page, dispatch, search])
 
