@@ -66,6 +66,6 @@ export const Character = () => {
                 </Descriptions.Item>
             })}
         </Descriptions>}
-
+        {characterFullInfoDTO?.error && "Error occurred"}
     </>
 }
