@@ -55,7 +55,7 @@
             "rootPathPrefix": "@svg"
           },
           {
-            "rootPathSuffix": "src/providers",
+            "rootPathSuffix": "src/components/providers",
             "rootPathPrefix": "@providers"
           }
         ]

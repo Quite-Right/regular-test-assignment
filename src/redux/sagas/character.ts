@@ -1,14 +1,14 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
-import Api from '../../api';
+import Api from '@api';
 import {
   FETCH_CHARACTER_REQUESTED,
   fetchCharacterFailed,
   fetchCharacterSucceed,
   fetchCharacter
-} from '../actions/character';
-import {AnyAction} from 'redux';
-import {ICharacterFullInfo} from '../../types/character';
-import {AxiosResponse} from 'axios';
+} from '@redux/actions/character';
+import { AnyAction } from 'redux';
+import { ICharacterFullInfo } from '@local-types';
+import { AxiosResponse } from 'axios';
 
 function* requestCharacter(action: AnyAction) {
   const characterId = action.payload.characterId;

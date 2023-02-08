@@ -1,6 +1,11 @@
 import { AnyAction } from 'redux';
-import {ICharactersStore} from '../../types/characters';
-import {FETCH_CHARACTERS, FETCH_CHARACTERS_FAILED, FETCH_CHARACTERS_SUCCEED} from '../actions/characters';
+import { ICharactersStore } from '@local-types';
+import {
+  FETCH_CHARACTERS,
+  FETCH_CHARACTERS_FAILED,
+  FETCH_CHARACTERS_SUCCEED
+} from '@redux/actions/characters';
+
 const initialState: ICharactersStore = {
   data: null,
   fetching: false,

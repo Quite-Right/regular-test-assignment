@@ -1,12 +1,12 @@
-import {useParams, Link} from 'react-router-dom';
-import {Descriptions} from 'antd';
-import {useCallback, useEffect} from 'react';
-import {fetchCharacterRequest, setSelectedCharacterId} from '../../redux/actions/character';
-import {useDispatch, useSelector} from 'react-redux';
-import {selectCharacterInfo} from '../../redux/selectors/character';
-import {snakeCaseToText} from '../../utils/snakeCaseToText';
-import {ICharacterFullInfo} from '../../types/character';
-import { PageHeader} from '@ant-design/pro-layout';
+import { Descriptions } from 'antd';
+import { PageHeader } from '@ant-design/pro-layout';
+import { useParams, Link } from 'react-router-dom';
+import { useCallback, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCharacterRequest, setSelectedCharacterId } from '@redux/actions/character';
+import { selectCharacterInfo } from '@redux/selectors/character';
+import { snakeCaseToText } from '@utils';
+import { ICharacterFullInfo } from '@local-types';
 
 export const Character = () => {
   const params = useParams();
@@ -34,10 +34,10 @@ export const Character = () => {
     case 'eye_color':
       return (value as string).indexOf('-') !== -1 ? (value as string).split('-').map(color => <div
         key={value + color}
-        style={{backgroundColor: color as string}}
+        style={{ backgroundColor: color as string }}
         className="eye-color">
       </div>) : <div
-        style={{backgroundColor: value as string}}
+        style={{ backgroundColor: value as string }}
         className="eye-color">
       </div>;
     default:
@@ -60,8 +60,8 @@ export const Character = () => {
         return <Descriptions.Item key={key} label={snakeCaseToText(key)}>
           {
             prepareDescriptionData(
-                            key as keyof ICharacterFullInfo,
-                            characterFullInfoDTO.data[key as keyof ICharacterFullInfo]
+              key as keyof ICharacterFullInfo,
+              characterFullInfoDTO.data[key as keyof ICharacterFullInfo]
             )
           }
         </Descriptions.Item>;

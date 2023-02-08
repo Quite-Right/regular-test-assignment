@@ -122,7 +122,7 @@ const PROD_CONFIG = {
   }
 };
 
-module.exports = ({mode}) => merge(
+module.exports = ({ mode }) => merge(
   BASE_CONFIG,
   mode === 'production' ? PROD_CONFIG : DEV_CONFIG 
 );
