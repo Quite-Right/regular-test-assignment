@@ -1,26 +1,22 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "typeRoots": ["node_modules/@types", "src/declarations/*.d.ts"],
+    "sourceMap": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@constants/*": ["constants/*"],
+      "@redux/*": ["redux/*"],
+      "@local-types": ["types"],
+      "@utils/*": ["utils/*"],
+      "@api/*": ["api/*"],
+      "@providers/*": ["providers/*"]
+    },
+    "downlevelIteration": true
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src/**/*", "src/declarations/*.d.ts"]
 }

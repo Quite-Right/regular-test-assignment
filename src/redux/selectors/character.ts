@@ -1,3 +1,3 @@
-import {TStore} from "../reducers/root-reducer";
+import {IStore} from '../reducers/root-reducer';
 
-export const selectCharacterInfo = (store: TStore) => store.character.data;
+export const selectCharacterInfo = (store: IStore) => store.character.data;
