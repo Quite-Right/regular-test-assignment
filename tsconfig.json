@@ -9,12 +9,12 @@
     "baseUrl": "./src",
     "paths": {
       "@components/*": ["components/*"],
-      "@constants/*": ["constants/*"],
+      "@constants": ["constants"],
       "@redux/*": ["redux/*"],
       "@local-types": ["types"],
-      "@utils/*": ["utils/*"],
-      "@api/*": ["api/*"],
-      "@providers/*": ["providers/*"]
+      "@utils": ["utils"],
+      "@api": ["api"],
+      "@providers": ["components/providers"]
     },
     "downlevelIteration": true
   },

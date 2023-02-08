@@ -1,3 +1,7 @@
+export interface IEditCharacterInfo extends ICharacter {
+    id: string;
+}
+
 export interface ICharacter {
     birth_year: string;
     eye_color: string;

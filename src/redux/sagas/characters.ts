@@ -1,14 +1,14 @@
+import { AxiosResponse } from 'axios';
+import { AnyAction } from 'redux';
 import { call, put, takeLatest } from 'redux-saga/effects';
-import Api from '../../api';
+import Api from '@api';
 import {
   FETCH_CHARACTERS_REQUESTED,
   fetchCharactersFailed,
   fetchCharactersSucceed,
   fetchCharacters
-} from '../actions/characters';
-import {AnyAction} from 'redux';
-import {ICharacter} from '../../types/characters';
-import {AxiosResponse} from 'axios';
+} from '@redux/actions/characters';
+import { ICharacter } from '@local-types';
 
 function* requestCharacters(action: AnyAction) {
   try {
