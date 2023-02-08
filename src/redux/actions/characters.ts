@@ -1,4 +1,4 @@
-import {ICharacter} from "../../types/characters";
+import {ICharacter} from '../../types/characters';
 
 // CHARACTERS
 export const FETCH_CHARACTERS = 'FETCH_CHARACTERS';

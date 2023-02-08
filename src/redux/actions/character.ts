@@ -1,4 +1,4 @@
-import {ICharacterFullInfo} from "../../types/character";
+import {ICharacterFullInfo} from '../../types/character';
 
 export const FETCH_CHARACTER = 'FETCH_CHARACTER';
 export const FETCH_CHARACTER_SUCCEED = 'FETCH_CHARACTER_SUCCEED';

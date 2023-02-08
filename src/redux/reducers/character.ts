@@ -1,41 +1,41 @@
 import { AnyAction } from 'redux';
-import { ICharacterStore } from "../../types/character";
-import {FETCH_CHARACTER, FETCH_CHARACTER_FAILED, FETCH_CHARACTER_SUCCEED} from "../actions/character";
+import { ICharacterStore } from '../../types/character';
+import {FETCH_CHARACTER, FETCH_CHARACTER_FAILED, FETCH_CHARACTER_SUCCEED} from '../actions/character';
 const initialState: ICharacterStore = {
-    data: {},
-    selectedCharacterId: null
-}
+  data: {},
+  selectedCharacterId: null
+};
 
 
 export const characterReducer = (state = initialState, action: AnyAction) => {
-    switch (action.type) {
-        case FETCH_CHARACTER:
-            return {
-                ...state,
-                data: {...state.data, [action.payload.characterId]: {
-                        ...(state.data[action.payload.characterId] || {}),
-                        fetching: true,
-                    }}
-            };
-        case FETCH_CHARACTER_SUCCEED:
-            return {
-                ...state,
-                data: {...state.data, [action.payload.characterId]: {
-                        fetching: false,
-                        data: action.payload.data,
-                        error: null
-                    }}
-            };
-        case FETCH_CHARACTER_FAILED:
-            return {
-                ...state,
-                data: {...state.data, [action.payload.characterId]: {
-                        ...(state.data[action.payload.characterId] || {}),
-                        fetching: false,
-                        error: action.payload.error,
-                    }}
-            };
-        default:
-            return state;
-    }
-}
+  switch (action.type) {
+  case FETCH_CHARACTER:
+    return {
+      ...state,
+      data: {...state.data, [action.payload.characterId]: {
+        ...(state.data[action.payload.characterId] || {}),
+        fetching: true,
+      }}
+    };
+  case FETCH_CHARACTER_SUCCEED:
+    return {
+      ...state,
+      data: {...state.data, [action.payload.characterId]: {
+        fetching: false,
+        data: action.payload.data,
+        error: null
+      }}
+    };
+  case FETCH_CHARACTER_FAILED:
+    return {
+      ...state,
+      data: {...state.data, [action.payload.characterId]: {
+        ...(state.data[action.payload.characterId] || {}),
+        fetching: false,
+        error: action.payload.error,
+      }}
+    };
+  default:
+    return state;
+  }
+};

@@ -1,0 +1,65 @@
+{
+  "presets": [
+    "@babel/preset-typescript",
+    ["@babel/preset-env", {
+      "useBuiltIns": "usage",
+      "corejs": 3
+    }],
+    ["@babel/preset-react", {
+      "runtime": "automatic"
+    }]
+  ],
+  "plugins": [
+    [
+      "babel-plugin-root-import",
+      {
+        "paths": [
+          {
+            "rootPathSuffix": "src",
+            "rootPathPrefix": "@src"
+          },
+          {
+            "rootPathSuffix": "src/redux/",
+            "rootPathPrefix": "@redux"
+          },
+          {
+            "rootPathSuffix": "src/components",
+            "rootPathPrefix": "@components"
+          },
+          {
+            "rootPathSuffix": "src/constants",
+            "rootPathPrefix": "@constants"
+          },
+          {
+            "rootPathSuffix": "src/types/",
+            "rootPathPrefix": "@local-types"
+          },
+          {
+            "rootPathSuffix": "src/utils",
+            "rootPathPrefix": "@utils"
+          },
+          {
+            "rootPathSuffix": "src/hooks",
+            "rootPathPrefix": "@hooks"
+          },
+          {
+            "rootPathSuffix": "src/api",
+            "rootPathPrefix": "@api"
+          },
+          {
+            "rootPathSuffix": "src/assets",
+            "rootPathPrefix": "@assests"
+          },
+          {
+            "rootPathSuffix": "src/assets/svg",
+            "rootPathPrefix": "@svg"
+          },
+          {
+            "rootPathSuffix": "src/providers",
+            "rootPathPrefix": "@providers"
+          }
+        ]
+      }
+    ]
+  ]
+}
