@@ -4,6 +4,10 @@ const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const openBrowser = require('react-dev-utils/openBrowser');
+
+const host = process.env.HOST || 'localhost';
+const port = parseInt(process.env.PORT, 10) || 3000;
 
 const BASE_CONFIG = {
   target: 'web',
@@ -16,9 +20,7 @@ const BASE_CONFIG = {
       {
         test: /\.tsx?$/,
         loader: 'babel-loader',
-        options: {
 
-        }
       },
       {
         test: /\.scss$/,
@@ -111,7 +113,9 @@ const DEV_CONFIG = {
     port: 3000,
     historyApiFallback: true,
     compress: true,
-    open: true
+    onListening: () => openBrowser(`http://${host}:${port}`),
+    liveReload: true,
+    hot: true,
   }
 };
 
