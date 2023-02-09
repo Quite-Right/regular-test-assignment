@@ -4,7 +4,9 @@ import { SET_LANGUAGE } from '@redux/actions';
 import { ENG, RU } from '@constants';
 
 const initialState: ILanguageStore = {
-  language: window?.navigator?.languages.includes('ru') ? RU : ENG
+  language: window?.navigator?.languages.find(
+    lang => lang.includes('ru')
+  ) ? RU : ENG
 };
 
 export const languageReducer = (state = initialState, action: AnyAction) => {
