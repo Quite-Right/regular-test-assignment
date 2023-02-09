@@ -12,7 +12,7 @@ export const AppHeader = () => {
   const languageToBeChangedTo = language === RU ? ENG : RU;
   const dispatch = useDispatch();
   return <HeaderContainer className="header">
-    <Brand color='white' level={2}>
+    <Brand level={2}>
       {getDictionaryValue('header.title')}
     </Brand>
     <LangButton onClick={() => {
