@@ -1,6 +1,7 @@
 import { AnyAction } from 'redux';
 import { ICharacterStore } from '@local-types';
-import { FETCH_CHARACTER, FETCH_CHARACTER_FAILED, FETCH_CHARACTER_SUCCEED } from '@redux/actions/character';
+import { FETCH_CHARACTER, FETCH_CHARACTER_FAILED, FETCH_CHARACTER_SUCCEED } from '@redux/actions';
+
 const initialState: ICharacterStore = {
   data: {},
   selectedCharacterId: null

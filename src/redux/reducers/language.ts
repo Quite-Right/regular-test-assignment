@@ -1,11 +1,13 @@
 import { AnyAction } from 'redux';
 import { ILanguageStore } from '@local-types';
 import { SET_LANGUAGE } from '@redux/actions';
-import { ENG } from '@constants';
-const initialState: ILanguageStore = {
-  language: ENG
-};
+import { ENG, RU } from '@constants';
 
+const initialState: ILanguageStore = {
+  language: window?.navigator?.languages.find(
+    lang => lang.includes('ru')
+  ) ? RU : ENG
+};
 
 export const languageReducer = (state = initialState, action: AnyAction) => {
   switch (action.type) {

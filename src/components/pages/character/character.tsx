@@ -3,7 +3,7 @@ import { PageHeader } from '@ant-design/pro-layout';
 import { useParams, Link } from 'react-router-dom';
 import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCharacterRequest, setSelectedCharacterId } from '@redux/actions/character';
+import { fetchCharacterRequest, setSelectedCharacterId } from '@redux/actions';
 import { selectCharacterInfo } from '@redux/selectors/character';
 import { snakeCaseToText } from '@utils';
 import { ICharacterFullInfo } from '@local-types';

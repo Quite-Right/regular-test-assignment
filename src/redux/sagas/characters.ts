@@ -7,7 +7,7 @@ import {
   fetchCharactersFailed,
   fetchCharactersSucceed,
   fetchCharacters
-} from '@redux/actions/characters';
+} from '@redux/actions';
 import { ICharacter } from '@local-types';
 
 function* requestCharacters(action: AnyAction) {

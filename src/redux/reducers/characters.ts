@@ -4,7 +4,7 @@ import {
   FETCH_CHARACTERS,
   FETCH_CHARACTERS_FAILED,
   FETCH_CHARACTERS_SUCCEED
-} from '@redux/actions/characters';
+} from '@redux/actions';
 
 const initialState: ICharactersStore = {
   data: null,
