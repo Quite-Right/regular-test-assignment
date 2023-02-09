@@ -23,29 +23,10 @@ const BASE_CONFIG = {
           {
             loader: 'babel-loader'
           },
-          {
-            loader: 'ts-loader'
-          }
+          // {
+          //   loader: 'ts-loader'
+          // }
         ]
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                localIdentName: '[local]--[hash:base64:5]'
-              },
-            }
-          },
-          'sass-loader',
-        ],
-      },
-      {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$/,
@@ -115,6 +96,9 @@ const BASE_CONFIG = {
 const DEV_CONFIG = {
   mode: 'development',
   devtool: 'inline-source-map',
+  stats: {
+    preset: 'errors-warnings'
+  },
   devServer: {
     port: 3000,
     historyApiFallback: true,
