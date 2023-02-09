@@ -44,7 +44,7 @@
     "serve": "serve -s dist -l 5000",
     "pages": "gh-pages -b main -d dist",
     "test": "jest --watchAll",
-    "tscheck": "tsc",
+    "tscheck": "tsc --watch",
     "coverage": "jest --coverage --watchAll --collectCoverageFrom='src/components/**/*.{ts,tsx}'",
     "eslint-fix": "eslint --fix ./src ./jest.config.js ./setupTests.ts ./webpack.config.js"
   },
