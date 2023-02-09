@@ -61,6 +61,10 @@
           {
             "rootPathSuffix": "src/dictionaries",
             "rootPathPrefix": "@dictionaries"
+          },
+          {
+            "rootPathSuffix": "src/utils/test-utils",
+            "rootPathPrefix": "@test-utils"
           }
         ]
       }

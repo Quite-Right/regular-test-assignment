@@ -73,7 +73,7 @@ export const Characters = () => {
       />
       <Modal
         title="Edit character info"
-        visible={!!editInfo}
+        open={!!editInfo}
         onOk={() => updateCharacterInfo(editInfo as IEditCharacterInfo)}
         onCancel={() => setEditInfo(null)}
       >

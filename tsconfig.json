@@ -19,12 +19,13 @@
       "@api": ["api"],
       "@hooks": ["hooks"],
       "@providers": ["components/providers"],
-      "@dictionaries": ["dictionaries"]
+      "@dictionaries": ["dictionaries"],
+      "@test-utils": ["utils/test-utils"]
     },
-    "downlevelIteration": true,
+    "downlevelIteration": true
   },
   "include": ["src/**/*", "src/declarations/*.d.ts"],
   "exclude": [
     "**/*.test.ts*"
-  ] 
+  ]
 }
