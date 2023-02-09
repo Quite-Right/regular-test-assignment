@@ -1,14 +1,11 @@
 import { combineReducers } from 'redux';
-import { ICharactersStore, ICharacterStore } from '@local-types';
 import { charactersReducer } from './characters';
 import { characterReducer } from './character';
+import { languageReducer } from './language';
 
 export const rootReducer = combineReducers({
   characters: charactersReducer,
-  character: characterReducer
+  character: characterReducer,
+  language: languageReducer
 });
 
-export type IStore = {
-    characters: ICharactersStore,
-    character: ICharacterStore
-}
