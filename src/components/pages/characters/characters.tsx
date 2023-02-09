@@ -6,6 +6,7 @@ import { selectCharactersInfo } from '@redux/selectors/characters';
 import { ICharacter, IEditCharacterInfo } from '@local-types';
 import { PageHeader } from '@ant-design/pro-layout';
 import { CharacterCard } from '@components/character-card/character-card';
+import { CharacterSearch } from './characters.styles';
 
 export const Characters = () => {
   const dispatch = useDispatch();
@@ -32,15 +33,13 @@ export const Characters = () => {
       title="Characters"
       extra={[]}
     />
-    <div className="search-input-container">
-      <Input
-        value={search}
-        onChange={(event) => {
-          setSearch(event.target.value);
-          setPage(1);
-        }}
-      />
-    </div>
+    <CharacterSearch
+      value={search}
+      onChange={(event) => {
+        setSearch(event.target.value);
+        setPage(1);
+      }}
+    />
     {!error ? <>
       <List
         loading={fetching}

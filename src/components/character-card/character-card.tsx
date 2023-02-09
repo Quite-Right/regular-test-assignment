@@ -8,8 +8,7 @@ import { CardHeader } from './character-card.styles';
 
 // interface ICharacterIterable extends ICharacter {
 //     [key: string]: number | string | null | string[];
-// }
-
+// }  
 interface ICharacterCardProps {
     id: string;
     character: ICharacter;

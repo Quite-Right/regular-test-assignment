@@ -3,7 +3,6 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import { Characters } from '@components/pages/characters/characters';
 import { NotFound } from '@components/pages/not-found/not-found';
 import { Character } from '@components/pages/character/character';
-import './App.css';
 import { AppHeader } from '@components/app-header/app-header';
 
 const { Content } = Layout;
@@ -13,7 +12,7 @@ const App = () => {
     <Layout>
       <AppHeader/>
       <Content>
-        <Row gutter={16} justify="center" className="main">
+        <Row gutter={16} justify="center">
           <Col span={22}>
             <Routes>
               <Route path="/" element={<Navigate to="/characters" />} />

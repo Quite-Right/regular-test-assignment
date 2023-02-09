@@ -7,6 +7,7 @@ import { fetchCharacterRequest, setSelectedCharacterId } from '@redux/actions';
 import { selectCharacterInfo } from '@redux/selectors/character';
 import { snakeCaseToText } from '@utils';
 import { ICharacterFullInfo } from '@local-types';
+import { EyeColor } from './character.styles';
 
 export const Character = () => {
   const params = useParams();
@@ -32,14 +33,14 @@ export const Character = () => {
     case 'url':
       return <a href={value as string}>{value}</a>;
     case 'eye_color':
-      return (value as string).indexOf('-') !== -1 ? (value as string).split('-').map(color => <div
-        key={value + color}
-        style={{ backgroundColor: color as string }}
-        className="eye-color">
-      </div>) : <div
-        style={{ backgroundColor: value as string }}
-        className="eye-color">
-      </div>;
+      return (value as string).indexOf('-') !== -1 ? (value as string).split('-').map(color => <EyeColor
+        key={color}
+        eyeColor={color}
+      >
+      </EyeColor>) : <EyeColor
+        eyeColor={value as string}
+      >
+      </EyeColor>;
     default:
       if (Array.isArray(value)) return <div>
         {(value as string[]).map(el => <div key={el} >

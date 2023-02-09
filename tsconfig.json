@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "skipLibCheck": true,
     "typeRoots": ["node_modules/@types", "src/declarations/*.d.ts"],
     "sourceMap": true,
     "strict": true,
@@ -7,6 +8,8 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "baseUrl": "./src",
+    "isolatedModules": true,
+    "noEmit": true,
     "paths": {
       "@components/*": ["components/*"],
       "@constants": ["constants"],
@@ -14,10 +17,14 @@
       "@local-types": ["types"],
       "@utils": ["utils"],
       "@api": ["api"],
+      "@hooks": ["hooks"],
       "@providers": ["components/providers"],
       "@dictionaries": ["dictionaries"]
     },
-    "downlevelIteration": true
+    "downlevelIteration": true,
   },
-  "include": ["src/**/*", "src/declarations/*.d.ts"]
+  "include": ["src/**/*", "src/declarations/*.d.ts"],
+  "exclude": [
+    "**/*.test.ts*"
+  ] 
 }

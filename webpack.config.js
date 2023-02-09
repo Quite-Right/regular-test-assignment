@@ -4,6 +4,10 @@ const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const openBrowser = require('react-dev-utils/openBrowser');
+
+const host = process.env.HOST || 'localhost';
+const port = parseInt(process.env.PORT, 10) || 3000;
 
 const BASE_CONFIG = {
   target: 'web',
@@ -15,29 +19,14 @@ const BASE_CONFIG = {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: 'babel-loader',
-        options: {
-
-        }
-      },
-      {
-        test: /\.scss$/,
         use: [
-          'style-loader',
           {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                localIdentName: '[local]--[hash:base64:5]'
-              },
-            }
+            loader: 'babel-loader'
           },
-          'sass-loader',
-        ],
-      },
-      {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+          // {
+          //   loader: 'ts-loader'
+          // }
+        ]
       },
       {
         test: /\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$/,
@@ -107,11 +96,16 @@ const BASE_CONFIG = {
 const DEV_CONFIG = {
   mode: 'development',
   devtool: 'inline-source-map',
+  stats: {
+    preset: 'errors-warnings'
+  },
   devServer: {
     port: 3000,
     historyApiFallback: true,
     compress: true,
-    open: true
+    onListening: () => openBrowser(`http://${host}:${port}`),
+    liveReload: true,
+    hot: true,
   }
 };
 
