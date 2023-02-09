@@ -14,7 +14,8 @@
       "@local-types": ["types"],
       "@utils": ["utils"],
       "@api": ["api"],
-      "@providers": ["components/providers"]
+      "@providers": ["components/providers"],
+      "@dictionaries": ["dictionaries"]
     },
     "downlevelIteration": true
   },

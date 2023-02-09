@@ -6,7 +6,6 @@ const initialState: ICharacterStore = {
   selectedCharacterId: null
 };
 
-
 export const characterReducer = (state = initialState, action: AnyAction) => {
   switch (action.type) {
   case FETCH_CHARACTER:

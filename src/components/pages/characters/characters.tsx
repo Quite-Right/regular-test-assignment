@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { List, Modal, Input } from 'antd';
 import { fetchCharactersRequest } from '@redux/actions/characters';
 import { selectCharactersInfo } from '@redux/selectors/characters';
-import { IEditCharacterInfo } from '@local-types';
+import { ICharacter, IEditCharacterInfo } from '@local-types';
 import { PageHeader } from '@ant-design/pro-layout';
 import { CharacterCard } from '@components/character-card/character-card';
 
@@ -39,7 +39,6 @@ export const Characters = () => {
           setSearch(event.target.value);
           setPage(1);
         }}
-
       />
     </div>
     {!error ? <>
@@ -62,7 +61,7 @@ export const Characters = () => {
           onChange: setPage,
           total: data?.count
         }}
-        renderItem={character => {
+        renderItem={(character: ICharacter) => {
           const splitedUrl = character.url.split('/');
           const id = splitedUrl[splitedUrl.length - 2];
           return <CharacterCard

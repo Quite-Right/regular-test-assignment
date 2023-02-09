@@ -1,1 +1,1 @@
-export * from './snakeCaseToText';
+export * from './snake-case-to-text';

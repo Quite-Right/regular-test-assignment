@@ -3,7 +3,6 @@ import { BASE_URL, REQUEST_TIMEOUT } from '@constants';
 import { getCharacters } from './characters';
 import { getCharacter } from './character';
 
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Api: Record<string, (...args: any) => Promise<unknown>> = {
   getCharacters,

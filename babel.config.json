@@ -57,6 +57,10 @@
           {
             "rootPathSuffix": "src/components/providers",
             "rootPathPrefix": "@providers"
+          },
+          {
+            "rootPathSuffix": "src/dictionaries",
+            "rootPathPrefix": "@dictionaries"
           }
         ]
       }
