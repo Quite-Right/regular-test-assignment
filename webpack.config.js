@@ -100,18 +100,23 @@ const DEV_CONFIG = {
     preset: 'errors-warnings'
   },
   devServer: {
+    magicHtml: true,
     port: 3000,
     historyApiFallback: true,
     compress: true,
     onListening: () => openBrowser(`http://${host}:${port}`),
     liveReload: true,
     hot: true,
+  },
+  output: {
+    publicPath: '/',
   }
 };
 
 const PROD_CONFIG = {
   mode: 'production',
   output: {
+    publicPath: '/',
     path: path.join(__dirname, 'dist')
   }
 };

@@ -25,6 +25,7 @@ export const Character = () => {
   const characterFullInfoDTO = charactersFullInfoMap[params?.characterId as string];
 
   const prepareDescriptionData = useCallback((key: keyof ICharacterFullInfo, value: string | string[] = '') => {
+    console.log({ key, value });
     switch (key) {
     case 'created':
     case 'edited':
