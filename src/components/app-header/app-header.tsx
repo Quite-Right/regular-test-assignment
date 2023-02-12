@@ -11,7 +11,7 @@ export const AppHeader = () => {
   const language = useSelector(getLanguage);
   const languageToBeChangedTo = language === RU ? ENG : RU;
   const dispatch = useDispatch();
-  return <HeaderContainer className="header">
+  return <HeaderContainer>
     <Brand level={2}>
       {getDictionaryValue('header.title')}
     </Brand>

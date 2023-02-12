@@ -27,7 +27,9 @@ export const Character = () => {
       title={<Link to={'/characters'}>Characters</Link>}
       subTitle={data?.data?.name}
     />
-    {error && <Error />}
+    {error && <Error onReload={() => {
+      if (!fetching) dispatch(fetchCharacterRequest());
+    }} />}
     {!error && data?.data && <Descriptions>
       {Object.keys(data.data).map(key => <Descriptions.Item key={key} label={snakeCaseToText(key)}>
         <CharacterDescription
