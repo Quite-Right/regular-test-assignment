@@ -6,11 +6,6 @@ export interface IDefaultStore<T> {
     error: Error | null;
 }
 
-export interface ICharacterStoreData {
-    data: ICharacterFullInfo,
-    id: string;
-}
-
 export interface ICharactersStoreData {
     count: number;
     previous: null | string;
@@ -19,11 +14,16 @@ export interface ICharactersStoreData {
 }
 
 export type TCharactersStore = IDefaultStore<ICharactersStoreData>;
+
+export interface ICharacterStoreData {
+    data?: ICharacterFullInfo,
+    id: string | null;
+}
+
 export type TCharacterStore = IDefaultStore<ICharacterStoreData>;
 
 export interface IStore {
-    characters: TCharactersStore,
     character: TCharacterStore,
+    characters: TCharactersStore,
     language: ILanguageStore
 }
-

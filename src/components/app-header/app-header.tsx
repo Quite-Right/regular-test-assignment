@@ -16,7 +16,6 @@ export const AppHeader = () => {
       {getDictionaryValue('header.title')}
     </Brand>
     <LangButton onClick={() => {
-      console.log(setLanguage(languageToBeChangedTo));
       dispatch(setLanguage(languageToBeChangedTo));
     }}>
       <LangIcon />

@@ -29,14 +29,13 @@ export const Character = () => {
     />
     {error && <Error />}
     {!error && data?.data && <Descriptions>
-      {Object.keys(data.data).map(key => {
-        return <Descriptions.Item key={key} label={snakeCaseToText(key)}>
-          <CharacterDescription
-            key={key as keyof ICharacterFullInfo}
-            value={data.data[key as keyof ICharacterFullInfo]}
-          />
-        </Descriptions.Item>;
-      })}
+      {Object.keys(data.data).map(key => <Descriptions.Item key={key} label={snakeCaseToText(key)}>
+        <CharacterDescription
+          characteristic={key as keyof ICharacterFullInfo}
+          value={(data.data as ICharacterFullInfo)[key as keyof ICharacterFullInfo]}
+        />
+      </Descriptions.Item>
+      )}
     </Descriptions>}
     {fetching && <FullPageLoader />}
   </>;

@@ -2,16 +2,16 @@ import { ICharacterFullInfo } from '@local-types';
 import { EyeColor } from './character-description.styles';
 
 interface ICharacterDescriptionProps {
-    key: keyof ICharacterFullInfo
+    characteristic: keyof ICharacterFullInfo
     value?: string | string[]
 }
 
-export const CharacterDescription = ({ key, value = '' }: ICharacterDescriptionProps) => {
-  if (key === 'created' || key === 'edited') 
+export const CharacterDescription = ({ characteristic, value = '' }: ICharacterDescriptionProps) => {
+  if (characteristic === 'created' || characteristic === 'edited') 
     return <>{new Date(value as string).toLocaleDateString()}</>;
-  if (key === 'homeworld' || key === 'url')
+  if (characteristic === 'homeworld' || characteristic === 'url')
     return <a href={value as string}>{value}</a>;
-  if (key === 'eye_color')
+  if (characteristic === 'eye_color')
     return (value as string).indexOf('-') !== -1 ?
       <>
         {

@@ -1,5 +1,5 @@
 import { AnyAction } from 'redux';
-import { TCharacterStore } from '@local-types';
+import { ICharacterFullInfo, TCharacterStore } from '@local-types';
 import { FETCH_CHARACTER, FETCH_CHARACTER_FAILED, FETCH_CHARACTER_SUCCEED, SET_SELECTED_CHARACTER_ID } from '@redux/actions';
 
 const initialState: TCharacterStore = {
@@ -27,11 +27,8 @@ export const characterReducer = (state = initialState, action: AnyAction) => {
       ...state,
       fetching: false,
       data: {
-        ...state,
-        data: {
-          ...state.data,
-          data: action.payload.data
-        }
+        id: state.data?.id || null,
+        data: action.payload.data as ICharacterFullInfo
       },
       error: null
     };
