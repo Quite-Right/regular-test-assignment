@@ -1,10 +1,11 @@
-import { useMemo, Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import { Link } from 'react-router-dom';
 import { List, Descriptions, Card } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
 import { snakeCaseToText } from '@utils';
 import { ICharacter, IEditCharacterInfo } from '@local-types';
 import { CardHeader } from './character-card.styles';
+import { CHARACTER_CARD_KEYS_TO_RENDER } from '@constants';
 
 // interface ICharacterIterable extends ICharacter {
 //     [key: string]: number | string | null | string[];
@@ -16,18 +17,13 @@ interface ICharacterCardProps {
 }
 
 export const CharacterCard = ({ id, character, setEditInfo }: ICharacterCardProps) => {
-  const { name } = character;
-
-  const keysToRender = useMemo(() => [
-    'url', 'gender', 'mass', 'birth_year', 'hair_color', 'skin_color', 'eye_color'
-  ], []);
   return <List.Item
-    key={name}
+    key={id}
   >
     <Card
       title={<CardHeader>
         <Link key="more" to={id}>
-          {name}
+          {character.name}
         </Link>
         <EditOutlined
           key="edit"
@@ -39,12 +35,12 @@ export const CharacterCard = ({ id, character, setEditInfo }: ICharacterCardProp
         layout="horizontal"
         column={1}
       >
-        {keysToRender.map(key => <Descriptions.Item
+        {CHARACTER_CARD_KEYS_TO_RENDER.map((key: keyof ICharacter) => <Descriptions.Item
           key={key}
           label={snakeCaseToText(key)}>
-          {key === 'url' ? <a href={character[key as keyof ICharacter] as string}>
-            {character[key as keyof ICharacter]}
-          </a> : <>{character[key as keyof ICharacter]}</>}
+          {key === 'url' ? <Link to={character[key]}>
+            {character[key]}
+          </Link> : <>{character[key]}</>}
         </Descriptions.Item>)}
       </Descriptions>
     </Card>

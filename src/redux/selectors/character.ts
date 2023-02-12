@@ -1,3 +1,4 @@
 import { IStore } from '@local-types';
 
-export const selectCharacterInfo = (store: IStore) => store.character.data;
+export const characterStoreState = (store: IStore) => store.character;
+export const selectedCharacterId = (store: IStore) => store.character.data?.id;

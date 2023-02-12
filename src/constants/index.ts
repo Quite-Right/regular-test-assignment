@@ -1,3 +1,4 @@
+export * from './character';
 export * from './languages';
 export * from './pagination';
 export * from './timeout';
