@@ -6,9 +6,12 @@ export const ErrorContainer = styled.div``;
 export const ErrorHeader = styled.div`
     display: flex;
     justify-content: space-between;
+    max-width: 200px;
 `;
 
-export const ErrorMessage = styled.div``;
+export const ErrorMessage = styled.div`
+    max-width: 160px;
+`;
 export const ErrorDescription = styled.div`
     margin-top: 8px;
 `;
