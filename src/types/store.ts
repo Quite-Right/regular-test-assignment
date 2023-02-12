@@ -1,4 +1,4 @@
-import { ICharacter, ICharacterFullInfo, ILanguageStore } from '@local-types';
+import { ICharacter, ICharacterFullInfo } from '@local-types';
 
 export interface IDefaultStore<T> {
     data: T | null;
@@ -25,5 +25,4 @@ export type TCharacterStore = IDefaultStore<ICharacterStoreData>;
 export interface IStore {
     character: TCharacterStore,
     characters: TCharactersStore,
-    language: ILanguageStore
 }
