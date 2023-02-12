@@ -7,6 +7,7 @@ import { ICharacter, IEditCharacterInfo } from '@local-types';
 import { PageHeader } from '@ant-design/pro-layout';
 import { CharacterCard } from '@components/character-card/character-card';
 import { CharacterSearch } from './characters.styles';
+import { Error } from '@components/error/error';
 
 export const Characters = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ export const Characters = () => {
 
   useEffect(() => {
     dispatch(fetchCharactersRequest({ page, search }));
-  }, [page, dispatch, search]);
+  }, [page, search]);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const updateCharacterInfo = useCallback((newCharacterInfo: IEditCharacterInfo) => {
@@ -86,6 +87,11 @@ export const Characters = () => {
             }}/>;
         })}
       </Modal>
-    </> : JSON.stringify(error)}
+    </> : <Error
+      description={JSON.stringify(error)}
+      onReload={() => {
+        if (!fetching) dispatch(fetchCharactersRequest({ page, search }));
+      }}
+    />}
   </>;
 };
