@@ -1,11 +1,13 @@
 import { get } from 'lodash';
-import { useSelector } from 'react-redux';
-import { getLanguage } from '@redux/selectors';
+import { useContext } from 'react';
+import { LanguagesContext } from '@contexts';
 import dictionaries from '@dictionaries';
+import { ILanguagesContextStore } from '@local-types';
+
 
 export const useGetDicitonaryValue = () => {
-  const lang = useSelector(getLanguage);
-  const dictionary = dictionaries[lang];
+  const { language } = useContext(LanguagesContext) as ILanguagesContextStore;
+  const dictionary = dictionaries[language];
   return (path: string): string | null =>
     get(dictionary, path, null);
 };

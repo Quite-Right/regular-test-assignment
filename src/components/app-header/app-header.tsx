@@ -1,23 +1,20 @@
 import { ENG, RU } from '@constants';
 import { useGetDicitonaryValue } from '@hooks';
-import { setLanguage } from '@redux/actions';
-import { getLanguage } from '@redux/selectors';
-import { useDispatch, useSelector } from 'react-redux';
+import { ILanguagesContextStore } from '@local-types';
+import { LanguagesContext } from '@contexts';
+import { useContext } from 'react';
 import { Brand, HeaderContainer, LangButton, LangIcon, LangText } from './app-header.styles';
 
 
 export const AppHeader = () => {
   const getDictionaryValue = useGetDicitonaryValue();
-  const language = useSelector(getLanguage);
+  const { language, setLanguage } = useContext(LanguagesContext) as ILanguagesContextStore;
   const languageToBeChangedTo = language === RU ? ENG : RU;
-  const dispatch = useDispatch();
   return <HeaderContainer>
     <Brand level={2}>
       {getDictionaryValue('header.title')}
     </Brand>
-    <LangButton onClick={() => {
-      dispatch(setLanguage(languageToBeChangedTo));
-    }}>
+    <LangButton onClick={() => setLanguage(languageToBeChangedTo)}>
       <LangIcon />
       <LangText>
         {languageToBeChangedTo}

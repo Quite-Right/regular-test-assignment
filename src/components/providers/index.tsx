@@ -7,6 +7,7 @@ import { StrictModeProvider } from './strict-mode';
 import { GlobalStyleProvider } from './global-style';
 
 import { createAppStore } from '@redux/store';
+import { LanguagesProvider } from './languages';
 
 
 interface IRootProviderProps {
@@ -18,10 +19,12 @@ export const RootProvider = ({
   children,
   store = createAppStore()
 }: IRootProviderProps) => <StrictModeProvider>
-  <GlobalStyleProvider />
-  <RouterProvider>
-    <ReduxProvider store={store}>
-      {children}
-    </ReduxProvider>
-  </RouterProvider>
+  <LanguagesProvider>
+    <GlobalStyleProvider />
+    <RouterProvider>
+      <ReduxProvider store={store}>
+        {children}
+      </ReduxProvider>
+    </RouterProvider>
+  </LanguagesProvider>
 </StrictModeProvider>;
