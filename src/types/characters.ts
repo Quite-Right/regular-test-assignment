@@ -20,14 +20,3 @@ export interface ICharacter {
     url: string;
     vehicles: string[];
 }
-
-export interface ICharactersStore {
-    data: {
-        count: number;
-        previous: null | string;
-        next: null | string;
-        results: ICharacter[];
-    } | null;
-    fetching: boolean;
-    error: Error | null;
-}

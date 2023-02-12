@@ -16,12 +16,3 @@ export interface ICharacterFullInfo {
     url: string;
     vehicles: string[];
 }
-
-export interface ICharacterStore {
-    data: Record<string, {
-        data: ICharacterFullInfo;
-        fetching: boolean;
-        error: Error | null;
-    }>;
-    selectedCharacterId: string | null;
-}

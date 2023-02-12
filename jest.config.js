@@ -12,7 +12,6 @@ const pathsToModuleNameMapper = (obj) => {
   for (const key in obj) {
     if (!isFileImport(key)) {
       const value = obj[key][0];
-      console.log({value});
       const endsWithStar = key.endsWith('/*');
       const newKey = key.substring(0, endsWithStar ? key.length - 1 : key.length) + 
         (endsWithStar ? '(.+)$' : '');
@@ -22,7 +21,6 @@ const pathsToModuleNameMapper = (obj) => {
       paths[newKey] = newValue;
     }
   }
-  console.log(paths);
   return paths;
 };
 

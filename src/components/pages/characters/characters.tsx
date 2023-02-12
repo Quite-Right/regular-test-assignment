@@ -1,32 +1,31 @@
 import { useCallback, useEffect, useState, Fragment } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { List, Modal, Input } from 'antd';
 import { fetchCharactersRequest } from '@redux/actions/characters';
-import { selectCharactersInfo } from '@redux/selectors/characters';
+import { selectCharactersInfo } from '@redux/selectors';
 import { ICharacter, IEditCharacterInfo } from '@local-types';
 import { PageHeader } from '@ant-design/pro-layout';
 import { CharacterCard } from '@components/character-card/character-card';
 import { CharacterSearch } from './characters.styles';
+import { Error } from '@components/error/error';
 
 export const Characters = () => {
   const dispatch = useDispatch();
   const [page, setPage] = useState<number>(1);
   const [search, setSearch] = useState<string>('');
   const [editInfo, setEditInfo] = useState<IEditCharacterInfo | null>(null);
-  const { data, fetching, error } = useSelector(selectCharactersInfo,
-    (store1, store2) => store1 === store2
-  );
+  const { data, fetching, error } = useSelector(selectCharactersInfo, shallowEqual);
 
   useEffect(() => {
     dispatch(fetchCharactersRequest({ page, search }));
-  }, [page, dispatch, search]);
+  }, [page, search]);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const updateCharacterInfo = useCallback((newCharacterInfo: IEditCharacterInfo) => {
     // compare two DTO's: newCharacterInfo and DTO from data field by field
     // if there are changes send update request -> if successful -> dispatch(fetchCharactersRequest({page, search))
     // to update data
-  }, [data, page, dispatch, search]);
+  }, [data, editInfo]);
 
   return <>
     <PageHeader
@@ -88,6 +87,11 @@ export const Characters = () => {
             }}/>;
         })}
       </Modal>
-    </> : JSON.stringify(error)}
+    </> : <Error
+      description={JSON.stringify(error)}
+      onReload={() => {
+        if (!fetching) dispatch(fetchCharactersRequest({ page, search }));
+      }}
+    />}
   </>;
 };
