@@ -21,7 +21,6 @@ const pathsToModuleNameMapper = (obj) => {
       paths[newKey] = newValue;
     }
   }
-  console.log(paths);
   return paths;
 };
 
