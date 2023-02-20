@@ -36,7 +36,13 @@ A few more extras I thought would be nice to have on a representation project, s
 - Webpack + Eslint
 - Translation
 - styled-components
-
+## How to run the app
+#### Online
+Go to [https://quite-right.github.io/regular-test-assignment](https://quite-right.github.io/regular-test-assignment)
+#### Locally
+1. Clone the project
+2. Install the packages via Yarn - yarn install
+3. Start the project - yarn start
 ## FYI
 In this section I'll answer some of questions you could have analyzing my code. <br />
 One of assignment part is adding memorisation to the project. Why there are no in your project? <br />

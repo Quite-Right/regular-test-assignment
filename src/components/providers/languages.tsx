@@ -10,7 +10,7 @@ interface ILanguagesProviderProps {
 export const LanguagesProvider = ({
   children
 }: ILanguagesProviderProps) => {
-  const [language, setLanguage] = useState<TLanguage>(window?.navigator?.languages.find(
+  const [language, setLanguage] = useState<TLanguage>(window?.navigator?.languages?.find(
     lang => lang.includes('ru')
   ) ? RU : ENG);
   return <LanguagesContext.Provider value={{

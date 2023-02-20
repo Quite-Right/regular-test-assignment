@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
+const { DefinePlugin } = require('webpack');
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
@@ -86,7 +87,11 @@ const BASE_CONFIG = {
     new HtmlWebpackPlugin({
       template: './public/index.html'
     }),
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      output: {
+        path: path.resolve(__dirname, 'dist')
+      }
+    }),
     new ESLintPlugin({
       extensions: ['js', 'jsx', 'ts', 'tsx']
     })
@@ -110,18 +115,28 @@ const DEV_CONFIG = {
   },
   output: {
     publicPath: '/',
-  }
+  },
+  plugins: [
+    new DefinePlugin({
+      BASE_ROUTING_URL: JSON.stringify('/')
+    })
+  ]
 };
 
 const PROD_CONFIG = {
   mode: 'production',
   output: {
-    publicPath: '/',
+    publicPath: '/regular-test-assignment/',
     path: path.join(__dirname, 'dist')
-  }
+  },
+  plugins: [
+    new DefinePlugin({
+      BASE_ROUTING_URL: JSON.stringify('/regular-test-assignment/')
+    })
+  ]
 };
 
-module.exports = ({ mode }) => merge(
+module.exports = () => merge(
   BASE_CONFIG,
-  mode === 'production' ? PROD_CONFIG : DEV_CONFIG 
+  process.env.MODE === 'production' ? PROD_CONFIG : DEV_CONFIG,
 );
