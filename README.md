@@ -1,7 +1,7 @@
 # Regular test assignment
 This repository is my solution for regular test assignment, which is nowadays sent by a lot of companies.<br />
 I'll try to update it according to my skills or your remarks. <br />
-Stack
+#### Stack:
 - React
 - Typescript
 - Redux + Redux Saga
