@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState, Fragment } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { List, Modal, Input } from 'antd';
+import { debounce } from 'lodash';
 import { fetchCharactersRequest } from '@redux/actions/characters';
 import { selectCharactersInfo } from '@redux/selectors';
 import { ICharacter, IEditCharacterInfo } from '@local-types';
@@ -8,6 +9,7 @@ import { PageHeader } from '@ant-design/pro-layout';
 import { CharacterCard } from '@components/character-card/character-card';
 import { CharacterSearch } from './characters.styles';
 import { Error } from '@components/error/error';
+import { SEARCH_DEBOUNCE_TIMEOUT } from '@constants';
 
 export const Characters = () => {
   const dispatch = useDispatch();
@@ -16,8 +18,13 @@ export const Characters = () => {
   const [editInfo, setEditInfo] = useState<IEditCharacterInfo | null>(null);
   const { data, fetching, error } = useSelector(selectCharactersInfo, shallowEqual);
 
+  const onSearchChange = useCallback(debounce(
+    (page: number, search: string) => {
+      dispatch(fetchCharactersRequest({ page, search }));
+    }, SEARCH_DEBOUNCE_TIMEOUT), []);
+
   useEffect(() => {
-    dispatch(fetchCharactersRequest({ page, search }));
+    onSearchChange(page, search);
   }, [page, search]);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -35,8 +42,8 @@ export const Characters = () => {
     <CharacterSearch
       value={search}
       onChange={(event) => {
-        setSearch(event.target.value);
         setPage(1);
+        setSearch(event.target.value);
       }}
     />
     {!error ? <>

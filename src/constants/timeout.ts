@@ -1,1 +1,2 @@
 export const REQUEST_TIMEOUT = 1000;
+export const SEARCH_DEBOUNCE_TIMEOUT = 300;
