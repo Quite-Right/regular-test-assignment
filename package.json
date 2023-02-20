@@ -44,9 +44,11 @@
     "webpack-merge": "^5.8.0"
   },
   "scripts": {
-    "dev": "cross-env mode=development webpack-dev-server",
+    "dev": "cross-env MODE=development webpack-dev-server",
     "start": "yarn run tscheck & yarn run dev",
-    "build": "cross-env mode=production webpack",
+    "build": "cross-env MODE=production webpack",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d dist",
     "serve": "serve -s dist -l 5000",
     "pages": "gh-pages -b main -d dist",
     "test": "jest --watchAll",
