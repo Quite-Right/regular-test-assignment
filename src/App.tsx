@@ -1,13 +1,17 @@
 import { Row, Col, Layout } from 'antd';
+import { lazy } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
-import { Characters } from '@components/pages/characters/characters';
 import { NotFound } from '@components/pages/not-found/not-found';
-import { Character } from '@components/pages/character/character';
 import { AppHeader } from '@components/app-header/app-header';
+
+const Characters = lazy(() => import('@components/pages/characters/characters').
+  then(({ Characters }) => ({ default: Characters })));
+const Character = lazy(() => import('@components/pages/character/character').
+  then(({ Character }) => ({ default: Character })));
 
 const { Content } = Layout;
 
-const App = () => {    
+const App = () => {
   return (
     <Layout>
       <AppHeader/>
