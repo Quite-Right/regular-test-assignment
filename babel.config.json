@@ -65,6 +65,10 @@
           {
             "rootPathSuffix": "src/utils/test-utils",
             "rootPathPrefix": "@test-utils"
+          },
+          {
+            "rootPathSuffix": "src/contexts",
+            "rootPathPrefix": "@contexts"
           }
         ]
       }
